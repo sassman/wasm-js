@@ -1,0 +1,15 @@
+{
+  "name": "js-wasm",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node fibonacci.run.js",
+    "wasm:env": "source $HOME/workspaces/wasm/emsdk/emsdk_env.sh --build=Release",
+    "wasm:compile": "emcc src/app/fibonacci.c -O3 -s WASM=1 -s MODULARIZE=1 -o src/app/fibonacci-c.js"
+  },
+  "private": true,
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "webassemblyjs": "^1.8.5"
+  },
+  "devDependencies": {}
+}
