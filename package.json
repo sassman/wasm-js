@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "start": "node fibonacci.run.js",
-    "wasm:env": "source $HOME/workspaces/wasm/emsdk/emsdk_env.sh --build=Release",
-    "wasm:compile": "emcc src/app/fibonacci.c -O3 -s WASM=1 -s MODULARIZE=1 -o src/app/fibonacci-c.js"
+    "emcc:env": "source $HOME/workspaces/wasm/emsdk/emsdk_env.sh --build=Release",
+    "emcc:compile": "emcc src/fibonacci.c -O3 -s WASM=1 -s MODULARIZE=1 -o fibonacci_c.wasm",
+    "clang:compile": "clang --target=wasm32 -nostdlib -Wl,--no-entry -Wl,--export-all -o fibonacci_c.wasm src/fibonacci_c.c"
   },
   "private": true,
   "dependencies": {

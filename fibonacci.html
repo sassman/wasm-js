@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<script type="module">
+  async function init() {
+    const { instance } = await WebAssembly.instantiateStreaming(
+      fetch("./fibunacci_c.wasm")
+    );
+    console.log(instance.exports.fibunacci_c(13));
+  }
+  init();
+</script>
